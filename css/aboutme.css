@@ -1,0 +1,66 @@
+img {
+    border-radius: 50%;
+}
+
+body {
+    /* background-image: url('images/background.jpg'); */
+    background-color: darkgrey;
+    background-size: cover;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* color: white; */
+    /* text-align: center; */
+}
+
+.copyrightFooter {
+    float: left;
+    text-align: left;
+    margin: 10px;
+}
+
+.sadImage {
+    width: 200px;
+    height: 200px;
+}
+
+.happyImage {
+    width: 200px;
+    height: 200px;
+}
+
+.floatDiv {
+    float: left;
+    padding: 10px;
+}
+
+.floatText {
+    /* padding-top: 200px; */
+    float: left;
+    padding: 10px;
+    height: 200px;
+    vertical-align: baseline;
+}
+
+.clearFloat {
+    clear: both;
+}
+.yellowText{
+    color: yellow;
+}
+
+.blueText{
+    color: blue;
+}
+
+.redText{
+    color:red;
+}
+
+.h1TextSize{
+ font-size: xx-large;
+}

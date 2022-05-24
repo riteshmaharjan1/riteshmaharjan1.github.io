@@ -5,27 +5,83 @@
     <meta charset="UTF-8">
     <title>Ritesh Maharjan</title>
     <link href="images/ritesh.jpg" type="image/jpg" rel="icon" />
-    <link href="styles.css" rel="stylesheet" />
+    <link href="css/aboutme.css" rel="stylesheet" />
 </head>
 
 <body>
     <header>
-        <img src="images/ritesh.jpg" alt="picture">
+        <!-- <img src="images/ritesh.jpg" alt="picture"> -->
     </header>
     <section>
-        <h1> Ritesh Maharjan</h1>
-        <div>Maharishi International University</div>
-        <div>1000 N 4th Street</div>
-        <div>Fairfield, Iowa 52557</div>
-        <div>riteshmaharjan@miu.edu</div>
-        <br />
+        <h1 class="blueText h1TextSize">About Ritesh Maharjan</h1>
+        <p>My name is Ritesh Maharjan and I am <span class="yellowText">jolly</span>, <span
+                class="yellowText">clumsy</span> and <span class="yellowText"> Web Enthusiatic</span></p>
         <hr />
+        <h3 class="blueText">My Classes This Quarter</h3>
+        <ul>
+            <li>
+                CS590: Software Architecture
+            </li>
+            <li>
+                CS470: Web Application Program
+            </li>
+            <li>
+                CS510: Enterprise Architecture
+            </li>
+            <li>
+                CS420: Algorithm
+            </li>
+        </ul>
+        <h3 class="blueText">My Favourite Movies</h3>
+        <ol>
+            <li>The Dark Knight <a href="https://www.imdb.com/title/tt0468569/" target="_blank"
+                    class="redText">(IMDB)</a></li>
+            <li>Spiderman <a href="https://www.imdb.com/title/tt0145487/" target="_blank" class="redText">(IMDB)</a>
+            </li>
+            <li>Superman Returns <a href="https://www.imdb.com/title/tt0348150/" target="_blank"
+                    class="redText">(IMDB)</a></li>
+        </ol>
+        <h3 class="blueText">My Moods</h3>
+        <div>
+            <label>
+                Happy:
+            </label>
+            <!-- <label for="happy">Happy<label> -->
+            <!-- <div class="floatDiv"> -->
+            <img class="happyImage" src="images/happy.jpg" alt="happy">
+            <!-- </div> -->
+            <label>
+                Sad:
+            </label>
+            <!-- <div class="floatDiv"> -->
+            <img class="sadImage" src="images/sad.jpg" alt="sad">
+            <!-- </div> -->
+        </div>
+        <h3 class="clearFloat blueText">Fun Facts About My Neighour</h3>
+        <ul>
+            <li>
+                Rajendra Maharjan: Efficient is a word that describes him
+            </li>
+            <li>Ananda KC: Loves plaing Table tennis</li>
+        </ul>
+
         <div><a href="index.html">Go Back</a></div>
     </section>
     <footer>
-        <a href="https://validator.w3.org/nu/?doc=https://riteshmaharjan1.github.io/">
-            <img src="https://manalabs.org/img/w3c-html.png" alt="picture" />
-        </a>
+        <div class="footer">
+            <div class="copyrightFooter">
+                Maharishi International University <br />
+                1000 N 4th Street<br />
+                Fairfield, Iowa 52557<br />
+                riteshmaharjan@miu.edu<br />
+            </div>
+            <a href="https://validator.w3.org/nu/?doc=https://riteshmaharjan1.github.io/">
+                <img src="https://manalabs.org/img/w3c-html.png" alt="picture" />
+            </a>
+            <a href="http://jigsaw.w3.org/css-validator/validator?uri=https://riteshmaharjan1.github.io/">
+                <img src="https://manalabs.org/img/w3c-css.png" alt="">
+            </a>
+        </div>
     </footer>
 </body>
 
