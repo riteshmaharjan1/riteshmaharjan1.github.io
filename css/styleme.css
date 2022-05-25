@@ -61,7 +61,15 @@ body {
 .redText{
     color:red;
 }
+.redText:hover{
+    text-decoration: underline;
+    color: blue;
+}
 
 .h1TextSize{
  font-size: xx-large;
+}
+
+p::first-letter{
+    font-size: 2rem;
 }
