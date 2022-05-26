@@ -10,10 +10,11 @@ body {
 }
 
 .footer {
-    position: fixed;
+    /* position: fixed; */
     left: 0;
     bottom: 0;
     width: 100%;
+    padding-top: 10%;
     /* color: white; */
     /* text-align: center; */
 }
@@ -70,6 +71,17 @@ body {
  font-size: xx-large;
 }
 
-p::first-letter{
+.firstLetter::first-letter{
     font-size: 2rem;
+}
+
+.tab{
+    padding-left: 2em;
+    font-size: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.font{
+    font-size: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

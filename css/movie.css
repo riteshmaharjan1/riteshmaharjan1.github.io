@@ -7,16 +7,17 @@ body {
 }
 
 .backgroundBanner {
+    background-repeat: repeat;
     height: 50px;
     width: 100%;
     position: absolute;
 }
 
 .centerBanner{
-    /* display: block; */
+    display: block;
     margin-left: auto;
     margin-right: auto;
-    margin: 0 auto;
+    /* margin: 0; */
     position: relative;
     /* width: 50%; */
 }
