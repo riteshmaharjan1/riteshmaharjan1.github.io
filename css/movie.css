@@ -14,7 +14,7 @@ body {
 
 h1 {
     text-align: center;
-    font-weight: 24pt;
+    font-weight: 24px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-shadow: 3px 3px #999999;
 }
@@ -121,5 +121,4 @@ ul>li {
 .validator{
     float: right;
     opacity: 50%;
-    additive-symbols: ;
 }
