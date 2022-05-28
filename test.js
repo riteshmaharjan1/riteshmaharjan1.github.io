@@ -84,7 +84,7 @@ caller(ab);
 
 // })
 
-let mapA = ["apple", "banana", "cat","Pears"];
+let mapA = ["apple", "banana", "cat", "Pears"];
 let newArray = [];
 let arrayLength = [];
 
@@ -102,7 +102,7 @@ let elementArray = [];
 let indexArray = [];
 function returnElement(mapA) {
     for (let i = 0; i < mapA.length; i++) {
-        if (mapA[i].length === 5){
+        if (mapA[i].length === 5) {
             elementArray.push(mapA[i]);
             indexArray.push(i);
         }
@@ -115,17 +115,17 @@ forArray(mapA);
 
 returnElement(mapA);
 
-function findFirstElement(mapA){
+function findFirstElement(mapA) {
     for (let i = 0; i < mapA.length; i++) {
-        if (mapA[i].length === 5){
+        if (mapA[i].length === 5) {
             return mapA[i];
         }
     }
 }
 
-function findFirstIndex(mapA){
+function findFirstIndex(mapA) {
     for (let i = 0; i < mapA.length; i++) {
-        if (mapA[i].length === 5){
+        if (mapA[i].length === 5) {
             return i;
         }
     }
@@ -133,3 +133,84 @@ function findFirstIndex(mapA){
 
 console.log(findFirstElement(mapA));
 console.log(findFirstIndex(mapA));
+
+
+let array = [{ a: 1, b: 1 }, { a: 2, b: 9 }];
+
+function sumOfArray(array) {
+    let sum = 0;
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i].b;
+    }
+    console.log("sum of b= " + sum);
+}
+
+sumOfArray(array);
+
+
+let stringWord = "String";
+function reverse(word) {
+    let reverseWord = "";
+    for (let i = word.length - 1; i >= 0; i--) {
+        reverseWord += word[i];
+
+    }
+    console.log(reverseWord);
+}
+
+reverse(stringWord);
+
+function f1() {
+    return function () {
+        return function () {
+            console.log("I'm Here!")
+        }
+    }
+}
+
+f1()();
+
+function clicked() {
+    // alert(1);
+    setTimeout((element) => {
+        element.style.backgroundColor = "blue"
+    }, 1000, this);
+}
+
+let myArray1 = [10, 4, 5, 9];
+
+let result = myArray1.reduce(function (prev, element, index, array) {
+    if (prev < element)
+        prev = element;
+    return prev;
+}, 0)
+
+console.log(result)
+
+let salaryArray = [{ name: "ritesh", salary: 100 }, { name: "raj", salary: 1000 }, { name: "ananda", salary: 2000 }]
+let salaryResult = salaryArray.reduce(function (prev, element, index, array) {
+    prev += element.salary;
+    return prev;
+}, 0)
+
+console.log(salaryResult);
+
+
+let maxSalary = salaryArray.reduce(function (prev, element, index, array) {
+    if (prev < element.salary)
+        prev = element.salary
+    return prev;
+}, 0)
+
+console.log(maxSalary);
+
+let newArray1 = ["abc","asd","ritesh"];
+for(let element of newArray1){
+    console.log(element)
+}
+
+let newArray2 = {a:1,b:2,c:3};
+for(let key in newArray2){
+    console.log(key)
+    console.log(key, newArray2(key))
+}
