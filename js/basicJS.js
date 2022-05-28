@@ -102,7 +102,6 @@ function filterLongWords(longWords, len) {
             words.push(longWords[i]);
         }
     }
-    console.log(words)
     return words;
 }
 
