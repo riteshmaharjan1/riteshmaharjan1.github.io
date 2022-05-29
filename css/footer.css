@@ -13,6 +13,9 @@ body {
 .flex-3 {
     display: flex;
     padding: 30px;
+    width:70%;
+    justify-content: space-around;
+    margin-left: 15%;
     /* justify-content: space-between; */
     /* align-items: flex-start; */
 }
@@ -79,7 +82,7 @@ body {
 }
 
 .margin50 {
-    margin: 0 50px;
+    margin: 0 18%;
 }
 
 .tweetFlex {
