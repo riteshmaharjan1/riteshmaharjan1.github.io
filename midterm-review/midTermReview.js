@@ -32,3 +32,33 @@ for (let key in newObject) {
 // for(let key in newObject){
 //     if(newObject[key])
 // }
+
+var method3 = new Array('Hello', 'MY', 'Name');
+console.log(method3);
+
+function arrayMaker(n) {
+    if (n !== typeof Array) {
+        return Array.prototype.slice.call(arguments)
+    }
+}
+
+var b = arrayMaker({ 7: 1 }, { 2: 3 });
+console.log(b);
+
+var array6 = [[1, 2, 3], [4, 5, 6]];
+// var array6[0].length = [[1, 2, 3], [4, 5, 6]]
+
+// array6.length = 2;
+array6[0].length = 3
+console.log(array6);
+
+var a = ['zero', 'one', 'two', 'three'];
+var names = ['jason', 'john', 'peter', 'karen'];
+
+var sliced = a.slice(2, 3);
+var spliced = names.splice(0,3);
+
+console.log(sliced); // creates a new array ['one', 'two'] 
+console.log(a); 
+console.log(spliced);
+console.log(names);
