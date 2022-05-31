@@ -5,32 +5,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>jQuery Review</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(function () {
             $("#btnSubmit").click(function () {
+
                 let textBoxLabel = document.createElement("label");
                 textBoxLabel.innerHTML = $("#firstName").val();
-                $("#firstName").replaceWith(textBoxLabel);
+                if ($("#firstName").val()) {
+                    $("#firstName").replaceWith(textBoxLabel);
+                } else {
+                    alert("Firstname is required")
+                }
 
                 //TextArea
                 let textAreaLabel = document.createElement("label");
                 textAreaLabel.innerHTML = $("#aboutUs").val();
-                $("#aboutUs").replaceWith(textAreaLabel)
+                if ($("#aboutUs").val()) {
+                    $("#aboutUs").replaceWith(textAreaLabel)
+                } else {
+                    alert("About Us is required")
+                }
 
                 //Radio
                 let radioLabel = document.createElement("label");
                 // let checkedGender = document.getElementsByName("gender:checked");
                 let checkedGender = $("input[name='gender']:checked").val();
-                radioLabel.innerHTML = checkedGender
-                $("#gender").replaceWith(radioLabel)
+                if (checkedGender != undefined) {
+                    radioLabel.innerHTML = checkedGender
+                    $("#gender").replaceWith(radioLabel)
+                } else {
+                    alert("Please check gender")
+                }
+
 
                 //Dropdown
                 let dropdownLabel = document.createElement("label");
                 let selectedCourse = $("#course").val();
                 dropdownLabel.innerHTML = selectedCourse;
-                $("#course").replaceWith(dropdownLabel)
+                if (selectedCourse.toLowerCase() != "select") {
+                    $("#course").replaceWith(dropdownLabel)
+                } else {
+                    alert("please select any one course");
+                }
 
                 //Checkbox
                 let checkBoxLabel = document.createElement("label");
@@ -42,8 +60,12 @@
                         result += "," + selectedGadgets[i].value;
                     }
                 }
-                result = result.substring(1)
-                $("#selectedGadgets").replaceWith(result);
+                if (result) {
+                    result = result.substring(1)
+                    $("#selectedGadgets").replaceWith(result);
+                } else {
+                    alert("please select any gadgets")
+                }
 
             });
 
@@ -61,10 +83,9 @@
 </head>
 
 <body>
-
     <div>
         <label> FirstName: </label>
-        <input type="text" id="firstName">
+        <input type="text" id="firstName" required>
     </div>
     <br>
     <div>
@@ -85,6 +106,7 @@
     <div>
         <label for="course">Course: </label>
         <select name="course" id="course">
+            <option>select</option>
             <option>FPP</option>
             <option>MPP</option>
             <option>SWA</option>
@@ -104,7 +126,6 @@
         </span>
     </div>
     <br>
-
     <div>
         <button id="btnSubmit"> Submit</button>
         <button id="clear">Clear</button>
