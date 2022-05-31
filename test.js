@@ -204,13 +204,35 @@ let maxSalary = salaryArray.reduce(function (prev, element, index, array) {
 
 console.log(maxSalary);
 
-let newArray1 = ["abc","asd","ritesh"];
-for(let element of newArray1){
+let newArray1 = ["abc", "asd", "ritesh"];
+for (let element of newArray1) {
     console.log(element)
 }
 
-let newArray2 = {a:1,b:2,c:3};
-for(let key in newArray2){
-    console.log(key)
-    console.log(key, newArray2(key))
-}
+// let newArray2 = {a:1,b:2,c:3};
+// for(let key in newArray2){
+//     console.log(key)
+//     console.log(key, newArray2(key))
+// }
+
+$(function () {
+    $('#btnClick').click(function () {
+        alert(1)
+    })
+
+    $(function () {
+        // $("#buttonId").click(function () {
+        //     alert("abc");
+        // });
+
+        $('#div1.div2').click(function () {
+
+        })
+        let div1 = document.getElementById("div1")
+
+        console.log("div1", div1)
+        console.log($("#div1.a"));
+    })
+
+    $("#div1").prepend("<div>"); //append
+})

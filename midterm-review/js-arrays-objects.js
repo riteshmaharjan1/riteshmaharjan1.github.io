@@ -45,3 +45,25 @@ let mergedArray = array1.concat(array5);
 console.log(array1)
 console.log(mergedArray);
 
+let array7 = [50, 'apple', { a: 1 }];
+let array8 = [];
+function getTypes(array) {
+    for (let i = 0; i < array.length; i++) {
+        array8.push(typeof (array[i]));
+    }
+    return array8;
+}
+
+console.log(getTypes(array7));
+
+$(function () {
+    $("#buttonId").click(function () {
+        alert("abc");
+    });
+
+    $('#div1.div2').click(function(){
+
+    })
+    let div1 = document.getElementById("div1.div2")
+    console.log(div1)
+})
