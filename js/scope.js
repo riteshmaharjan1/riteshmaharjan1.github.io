@@ -29,7 +29,7 @@ function fruits() {
     };
 }
 
-console.log(fruits()()); //prints green : fruits()() calls annonymous function of fruits and grapes is defined globally
+console.log(fruits()()); //prints green : fruits()() calls annonymous function of fruits and "grapes" is defined globally
 
 // 2.
 let x = 10;
@@ -44,7 +44,7 @@ x = 20;
 
 let fn = globalVar();
 
-console.log(fn()); //prints 20 : x is set to 20 before call fn() function
+console.log(fn()); //prints 20 : x is set to 20 before calling fn() function
 
 // 3.
 function sport(message) {
@@ -56,7 +56,7 @@ function sport(message) {
 
 let sportFn = sport("Hello");
 
-console.log(sportFn()); //retuns undefined: message is parameter in line 59, and no parameter is passed.
+console.log(sportFn()); //retuns undefined: "message" is parameter for return function, but no parameter is passed
 
 // // 4.
 function test(x) {
@@ -67,7 +67,9 @@ function test(x) {
         return x++;
     };
 }
-console.log(test(2)()); // returns 11
+// returns 11 and 11: 2 is passed as parameter but reassigned to 10 as x is local variable, then it is incremented and set to 11,
+// further in return function x is post incremented hence it returns 11  
+console.log(test(2)());
 
 // // 5.
 function car() {
@@ -79,50 +81,32 @@ function car() {
     console.log(color); //___________  White
 }
 
-car("black"); // only white willbe printed.
+car("black"); // only white will be printed, because seat function is not called.
 
 // 6.
 function department() {
     let numberOfDepartments = 5;
-    console.log(numberOfDepartments);
+    console.log(numberOfDepartments); //prints 5
     function software() {
         let language = "javascript";
         console.log(language);
     }
 
-    console.log(language);
+    console.log(language); // language is not defined
 }
 
-department(); //error : language is not defined
+department(); //first 5 is printed then undefined is printed as language is not defined
 
 // // 7.
 function department(language) {
     let numberOfDepartments = 5;
-    console.log(numberOfDepartments);
+    console.log(numberOfDepartments); //prints 5
     function software() {
         let language = "javascript";
         console.log(language);
     }
 
-    console.log(language);
+    console.log(language); //prints "java"
 }
 
-department("java"); // 5 and java is printed
-
-// function add(x) {
-//     console.log("x", x);
-//     return function (y) {
-//         console.log("y", y);
-//         return x + y;
-//     };
-// }
-
-// var addTwo = add(2);
-
-// // console.log(add(2));
-
-// // addTwo(4) === 6; // true
-// // add(3)(4) === 7; // true
-
-// console.log(addTwo(4));
-// console.log(add(3)(4));
+department("java"); // first 5 is printed as numberOfDepartments is set t0 5 locally and as "java" is sent as parameter in language, it prints "java"

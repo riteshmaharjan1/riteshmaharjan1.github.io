@@ -286,6 +286,14 @@ for (let i = 0; i < array11.length; i++) {
 cloneArray[0].b = 20;
 console.log(array11, cloneArray);
 
-let address = [1,"street", "city"]
-let[qa, street]  = address;
-console.log(qa,street)
+let address = [1, "street", "city"]
+let [qa, street] = address;
+console.log(qa, street)
+
+let sumObj = {
+    a: 1, b: 2, c: function () {
+        return this.a + this.b
+    }
+}
+
+console.log(sumObj.c())
