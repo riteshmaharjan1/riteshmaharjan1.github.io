@@ -16,17 +16,21 @@
 
             let div = document.createElement("div");
             let span = document.createElement("span");
+            span.innerHTML = "firstname";
             let p = document.createElement("p");
             let img = document.createElement("img");
             let table = document.createElement("table");
             let input = document.createElement("input");
             let textArea = document.createElement("textarea");
             let select = document.createElement("select");
+            let ul = document.createElement("ul");
             // h1.innerHTML = "Header 1"
 
             div.id = "myDIV";
-            div.className = "myClass";
+            div.className = "myClass newClass";
             div.setAttribute("name", "myName");
+            div.remove
+
             let innerDiv1 = document.createElement("div");
             innerDiv1.id = "innerDIV";
             let firstP = document.createElement("p");
@@ -37,14 +41,102 @@
             secondP.innerHTML = "Second P"
             innerDiv1.append(secondP);
             innerDiv1.prepend(firstP);
+            innerDiv1.append(span);
+            innerDiv1.append(input)
+
+            // innerDiv1.append(table);
+            // table.innerHTML = "<tr> <td> Column1</td> <td> Column2</td> <td> Column3</td></tr>"
             div.append(innerDiv1)
             body[0].append(div);
+
+            let fName = document.getElementById("fname");
+            fName.value = "LastName"
+            // let table1 = document.getElementById("table1");
+            // console.log(table1)
+            // table.innerHTML
+
+            // $('#table1').each(function () {
+            //     var list = $("<ul>");
+            //     console.log("list=>", list)
+
+            //     $(this).find("tr").each(function () {
+            //         console.log(this)
+            //         var p = $(this).children().map(function () {
+            //             console.log("html=>", $(this).html())
+            //             return "<p>" + $(this).html() + "</p>";
+            //         });
+
+            //         list.append("<li>" + $.makeArray(p).join("") + "</li>");
+            //     });
+
+            //     $(this).replaceWith(list);
+            // });
+            let ulList = document.getElementById("ulList")
+            $("tr").each(function () {
+                $(this).children().map(function () {
+                    console.log("html=>", $(this).html())
+                    let li = document.createElement("li");
+
+                    li.append($(this).html())
+                    ulList.append(li);
+                })
+            })
+
+            $("#btnShowHide").click(function () {
+                let fname1 = document.getElementById("fname");
+                console.log(fname1)
+                if (fname1.style.display == "none")
+                    fname1.style.display = "block"
+                else
+                    fname1.style.display = "none"
+            })
+
+            $("#myDIV2 > .firstP").remove()
+
+            // console.log("mydiv",$("#myDIV2 > innerhtml").remove());
+
+            $("ol li").each(function (index) {
+                let li = document.createElement("li")
+                li.innerHTML = "5";
+                // console.log(index)
+                if (index == 4) {
+                    $(this)[0].append(li)
+                }
+            })
         })
     </script>
 </head>
 
 <body>
+    <div id="myDIV2" class="myClass2" name="myName2">
+        <div id="innerDIV">
+            <p class="firstP"> First P </p>
+            <p id="secondP"> Second P </p>
+        </div>
+        <p class="firstP"> First P </p>
+        <span> <input type="text" value="FirstName" id="fname">
+            <button id="btnShowHide"> Show/Hide</button>
+        </span>
+        <table id="table1">
+            <tr>
+                <td>First Row Col 1</td>
+                <td>First Row Col 2</td>
+            </tr>
+            <tr>
+                <td>Second Row Col 1</td>
+                <td>Second Row Col 2</td>
+            </tr>
+        </table>
 
+        <ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>4</li>
+        </ol>
+        <ul id="ulList"></ul>
+    </div>
 </body>
 
 </html>

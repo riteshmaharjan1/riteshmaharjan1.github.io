@@ -62,3 +62,11 @@ console.log(sliced); // creates a new array ['one', 'two']
 console.log(a); 
 console.log(spliced);
 console.log(names);
+
+
+var myObj = {a:2};
+var myObj2 = myObj;
+
+myObj.a =3;
+console.log(myObj.a);
+console.log(myObj2.a)

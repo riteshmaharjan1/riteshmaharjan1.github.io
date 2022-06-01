@@ -215,24 +215,77 @@ for (let element of newArray1) {
 //     console.log(key, newArray2(key))
 // }
 
-$(function () {
-    $('#btnClick').click(function () {
-        alert(1)
-    })
+// $(function () {
+//     $('#btnClick').click(function () {
+//         alert(1)
+//     })
 
-    $(function () {
-        // $("#buttonId").click(function () {
-        //     alert("abc");
-        // });
+//     $(function () {
+//         // $("#buttonId").click(function () {
+//         //     alert("abc");
+//         // });
 
-        $('#div1.div2').click(function () {
+//         $('#div1.div2').click(function () {
 
-        })
-        let div1 = document.getElementById("div1")
+//         })
+//         let div1 = document.getElementById("div1")
 
-        console.log("div1", div1)
-        console.log($("#div1.a"));
-    })
+//         console.log("div1", div1)
+//         console.log($("#div1.a"));
+//     })
 
-    $("#div1").prepend("<div>"); //append
-})
+//     $("#div1").prepend("<div>"); //append
+// })
+
+
+function f() {
+    let a = 1, b = 20, c;
+    console.log(a + " " + b + " " + c);
+    function g() {
+        let b = 300, c = 4000;
+        console.log(a + " " + b + " " + c);
+        a = a + b + c;
+        console.log(a + " " + b + " " + c);
+    }
+    console.log(a + " " + b + " " + c);
+    g();
+    console.log(a + " " + b + " " + c);
+}
+f();
+
+
+var x = 10;
+function main() {
+    console.log("x1 is:" + x);
+    x = 20;
+    console.log("x2 is:" + x);
+    if (x > 0) {
+        var x = 30;
+        console.log("x3 is:" + x);
+    }
+    console.log("x4 is:" + x);
+    var x = 40;
+    var f = function (x) {
+        console.log("x5 is:" + x);
+    };
+    f(50);
+    console.log("x6 is:" + x);
+}
+main();
+console.log("x7 is:" + x);
+
+
+let array11 = [{ a: 1, b: 2 }, { c: 3, d: 4 }];
+let cloneArray = []
+
+for (let i = 0; i < array11.length; i++) {
+    let obj = [...array11]
+    cloneArray.push(obj);
+}
+// console.log(array11)
+cloneArray[0].b = 20;
+console.log(array11, cloneArray);
+
+let address = [1,"street", "city"]
+let[qa, street]  = address;
+console.log(qa,street)
