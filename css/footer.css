@@ -13,7 +13,7 @@ body {
 .flex-3 {
     display: flex;
     padding: 30px;
-    width:70%;
+    width: 70%;
     justify-content: space-around;
     margin-left: 15%;
     /* justify-content: space-between; */
@@ -89,6 +89,7 @@ body {
     display: flex;
     justify-content: space-evenly;
 }
+
 button {
     margin-left: -91px;
     height: 32px;
@@ -114,5 +115,5 @@ input[type="text"] {
     border-radius: 20px;
     border: 0;
     /* background-color: grey; */
-   /* color:white; */
+    /* color:white; */
 }
