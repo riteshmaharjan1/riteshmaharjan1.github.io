@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Review</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function showHide() {
+            let display = "";
+            let btn1 = document.getElementById("btn1")
+
+            return function () {
+                if (display == "none") {
+                    display = "block"
+                } else {
+                    display = "none"
+                }
+                // console.log(showHide(display));
+                btn1.style.display = display;
+            }
+        }
+
+        //Interval
+        function showHide2() {
+            let show = false;
+            return function () {
+                let interval = setInterval(function () {
+                    if (show) {
+                        show = false;
+                        $("#btn2").hide();
+                    } else {
+                        show = true;
+                        $("#btn2").show();
+                    }
+                }, 1000);
+                setTimeout(function(){
+                    clearInterval(interval);
+                },5000)
+            }
+        }
+
+        $(function () {
+            $("#show").click(showHide())
+            $("#show2").click(showHide2());
+
+            function interval() {
+                setInterval(showHide2(), 1000);
+            }
+            setTimeout(function () {
+                clearInterval(showHide2());
+            }, 5000);
+
+            //create table
+            let objArray = [{ name: "a", age: 70 }, { name: "b", age: 30 }, { name: "c", age: 40 }];
+            console.log(objArray.sort());
+            let age = 0;
+            for (key in objArray) {
+                console.log(key);
+                console.log(objArray[key]);
+                console.log(objArray[key].age);
+                // age = objArray[key].age;
+                // if (age >)
+
+                // if()
+                // if(objArray[key])
+
+            }
+            let myTable = createTable(objArray);
+            document.body.append(myTable);
+        })
+
+        // function modifyTable(o)
+
+        function createTable(objArray) {
+            let tableElement = document.createElement("table");
+            let rows = "";
+            let headers = "<tr>";
+            //Create headers
+            for (let key in objArray[0]) {
+                headers += "<th>" + key + "</th>";
+            }
+            headers += "</tr>";
+            console.log(headers)
+            for (let element of objArray) {
+                rows += "<tr>";
+                for (let key in element) {
+                    rows += "<td>" + element[key] + "</td>";
+                }
+                rows += "</tr>"
+            }
+
+            let ul = "<ul>";
+            for (let key in objArray) {
+                ul += "<li>" + key + "</li>";
+            }
+            ul += "</ul>";
+            console.log("ul", ul)
+
+            let select =
+
+                console.log(rows)
+            tableElement.innerHTML = headers + rows + ul;
+            return tableElement;
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <button id="show">show/Hide</button>
+        <button id="btn1">Button</button>
+    </div>
+    <hr>
+    <div>
+        <button id="show2">Show/HIde2 </button>
+        <button id="btn2">Button2</button>
+
+    </div>
+</body>
+
+</html>

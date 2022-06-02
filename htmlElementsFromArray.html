@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML List elements from Arrays</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+            let tableArray = [{ "name": "Ritesh Maharjan", "Age": 30, "email": "ritesh@gmail.com" },
+            { "name": "Rajendra Maharjan", "Age": 28, "email": "rajendra@gmail.com" },
+            { "name": "Anand KC", "Age": 35, "email": "anand@gmail.com" },
+            { "name": "Rakesh Maharjan", "Age": 31, "email": "rakesh@gmail.com" }
+            ];
+
+            let courseSelect = ["FPP", "MPP"];
+
+            let myTable = createTable(tableArray);
+            let myUL = createUL(tableArray);
+
+            let fNameDiv = document.createElement("div");
+            let fNameLabel = document.createElement("label");
+            fNameLabel.innerHTML = "name:"
+            let nameTextbox = document.createElement("input");
+            nameTextbox.type = "text";
+            nameTextbox.id = "name";
+
+            let ageDiv = document.createElement("div");
+            let ageLabel = document.createElement("label");
+            ageLabel.innerHTML = "age:"
+            let ageTextbox = document.createElement("input");
+            ageTextbox.type = "text";
+            ageTextbox.id = "age";
+
+            let emailDiv = document.createElement("div");
+            let emailLabel = document.createElement("label");
+            emailLabel.innerHTML = "email:"
+            let emailTextbox = document.createElement("input");
+            emailTextbox.type = "text";
+            emailTextbox.id = "email";
+
+            let myCourse = createCourse(courseSelect);
+
+            let btn = document.createElement("button")
+            btn.id = "submit";
+            btn.innerHTML = "Submit"
+
+            btn.onclick = function () {
+                // tableArray.push({ "name": $("#name").val(), "age": $("#age").val(), "email": $("#email").val() });
+                let name = $("#name").val();
+                let age = $("#age").val();
+                let email = $("#email").val();
+                if (name != "" && age != "" && email != "") {
+
+                    $("#table").append(
+                        "<tr>" +
+                        "<td>" + $("#name").val() + "</td>" +
+                        "<td>" + $("#age").val() + "</td>" +
+                        "<td>" + $("#email").val() + "</td>" +
+                        "</tr>");
+                    $("#ul").append(
+                        "<li>" + $("#name").val() + "</li>" +
+                        "<li>" + $("#age").val() + "</li>" +
+                        "<li>" + $("#email").val() + "</li>"
+                    );
+                    clear();
+                }
+            }
+            document.body.append(fNameDiv)
+            fNameDiv.append(fNameLabel)
+            fNameDiv.append(nameTextbox)
+
+            document.body.append(ageDiv)
+            ageDiv.append(ageLabel)
+            ageDiv.append(ageTextbox)
+
+            document.body.append(emailDiv)
+            emailDiv.append(emailLabel)
+            emailDiv.append(emailTextbox)
+
+            // document.body.append(myCourse);
+
+            document.body.append(btn);
+
+            document.body.append(myTable);
+            document.body.append(myUL);
+
+
+        })
+
+        function clear() {
+            $("#name").val("")
+            $("#age").val("")
+            $("#email").val("")
+        }
+
+        function createTable(tableArray) {
+            //create table
+            let table = document.createElement("table")
+            table.id = "table";
+            //create header
+            let header = "<tr>"
+            for (let key in tableArray[0]) { //assign header value tableArray[0]
+                header += "<th>" + key + "</th>";
+            }
+            header += "</tr>" //close header tag
+            console.log(header);
+
+            //add table row
+            let row = "<tr>";
+            for (let element of tableArray) { // of tableArray !important
+                for (let key in element) {
+                    row += "<td>" + element[key] + "</td>";
+                }
+                row += "</tr>"
+            }
+
+            console.log(row)
+
+            table.innerHTML = header + row;
+
+            return table;
+        }
+
+        function createUL(tableArray) {
+            let ul = document.createElement("ul")
+            ul.id = "ul";
+            let li = "";
+            for (let element of tableArray) {
+                for (let key in element) {
+                    li += "<li>" + element[key] + "</li>";
+                }
+            }
+            ul.innerHTML = li
+            console.log(ul)
+            return ul;
+        }
+
+        function createCourse(courseSelect) {
+            let select = document.createElement("select");
+            let option = "";
+            console.log(courseSelect)
+            for (let i = 0; i < courseSelect.length; i++) {
+                option += "<option>" + courseSelect[i] + "</option>"
+            }
+            select.innerHTML = option
+            return select;
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

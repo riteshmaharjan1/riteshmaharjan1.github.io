@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // $(function () {
+        //     $("#toggle").click(wrapper());
+
+        //     function wrapper() {
+        //         let intervalStarted = false;
+        //         let isShown = true;
+        //         let interval;
+
+        //         return function () {
+        //             if (intervalStarted) {
+        //                 console.log("intervalStarted")
+        //                 clearInterval(interval);
+        //                 intervalStarted = false;
+        //             } else {
+        //                 console.log("intervalStarted false")
+        //                 interval = setInterval(function () {
+        //                     if (isShown) {
+        //                         isShown = false;
+        //                         $("#test").hide();
+        //                     } else {
+        //                         isShown = true;
+        //                         $("#test").show();
+        //                     }
+        //                 }, 2000);
+        //                 intervalStarted = true;
+        //             }
+        //         }
+        //     }
+        // });
+
+        $(function () {
+            $("#toggle").click(wrapper());
+            function wrapper() {
+                let isShown = true;
+                return function () {
+                    let interval = setInterval(function () {
+                        if (isShown) {
+                            isShown = false;
+                            $("#test").hide();
+                        } else {
+                            isShown = true;
+                            $("#test").show();
+                        }
+                    }, 1000);
+                    setTimeout(function () {
+                        clearInterval(interval);
+                    }, 5000);
+                }
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <button id="test">Test</button>
+    <button id="toggle">Toggle</button>
+</body>
+
+</html>
