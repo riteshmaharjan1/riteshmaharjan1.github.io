@@ -9,16 +9,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(function () {
-            let tableArray = [{ "name": "Ritesh Maharjan", "Age": 30, "email": "ritesh@gmail.com" },
-            { "name": "Rajendra Maharjan", "Age": 28, "email": "rajendra@gmail.com" },
-            { "name": "Anand KC", "Age": 35, "email": "anand@gmail.com" },
-            { "name": "Rakesh Maharjan", "Age": 31, "email": "rakesh@gmail.com" }
+            // let tableArray = [{ "name": "Ritesh Maharjan", "Age": 30, "email": "ritesh@gmail.com" },
+            // { "name": "Rajendra Maharjan", "Age": 28, "email": "rajendra@gmail.com" },
+            // { "name": "Anand KC", "Age": 35, "email": "anand@gmail.com" },
+            // { "name": "Rakesh Maharjan", "Age": 31, "email": "rakesh@gmail.com" }
+            // ];
+            let tableArray = [{ name: "Ritesh Maharjan", Age: 30, email: "ritesh@gmail.com" },
+            { name: "Rajendra Maharjan", Age: 28, email: "rajendra@gmail.com" },
+            { name: "Anand KC", Age: 35, email: "anand@gmail.com" },
+            { name: "Rakesh Maharjan", Age: 31, email: "rakesh@gmail.com" }
             ];
 
-            let courseSelect = ["FPP", "MPP"];
+            let courseSelect = [{ code: "FPP", name: "Fundamental Programming Practise" },
+            { code: "MPP", name: "Modern Programming Practise" }];
 
             let myTable = createTable(tableArray);
-            let myUL = createUL(tableArray);
+            let myUL = createUL(tableArray, "ul");
+            let myLi = createUL(tableArray, "ol");
+
 
             let fNameDiv = document.createElement("div");
             let fNameLabel = document.createElement("label");
@@ -43,9 +51,26 @@
 
             let myCourse = createCourse(courseSelect);
 
-            let btn = document.createElement("button")
+            let dibBtn = document.createElement("div");
+            let btn = document.createElement("button");
             btn.id = "submit";
             btn.innerHTML = "Submit"
+
+            let filterdiv = document.createElement("div");
+            let filter = document.createElement("button");
+            filter.id = "filter";
+            filter.innerHTML = "filter<=30";
+
+            let sortdiv = document.createElement("div");
+            let sort = document.createElement("button");
+            sort.id = "sort";
+            sort.innerHTML = "sort by age";
+
+
+            let reducediv = document.createElement("div");
+            let reduce = document.createElement("button");
+            reduce.id = "reduce";
+            reduce.innerHTML = "displate name and age";
 
             btn.onclick = function () {
                 // tableArray.push({ "name": $("#name").val(), "age": $("#age").val(), "email": $("#email").val() });
@@ -56,18 +81,19 @@
 
                     $("#table").append(
                         "<tr>" +
-                        "<td>" + $("#name").val() + "</td>" +
-                        "<td>" + $("#age").val() + "</td>" +
-                        "<td>" + $("#email").val() + "</td>" +
+                        "<td>" + name + "</td>" +
+                        "<td>" + age + "</td>" +
+                        "<td>" + email + "</td>" +
                         "</tr>");
                     $("#ul").append(
-                        "<li>" + $("#name").val() + "</li>" +
-                        "<li>" + $("#age").val() + "</li>" +
-                        "<li>" + $("#email").val() + "</li>"
+                        "<li>" + name + "</li>" +
+                        "<li>" + age + "</li>" +
+                        "<li>" + email + "</li>"
                     );
                     clear();
                 }
             }
+
             document.body.append(fNameDiv)
             fNameDiv.append(fNameLabel)
             fNameDiv.append(nameTextbox)
@@ -80,13 +106,41 @@
             emailDiv.append(emailLabel)
             emailDiv.append(emailTextbox)
 
-            // document.body.append(myCourse);
+            document.body.append(myCourse);
 
-            document.body.append(btn);
+            document.body.append(dibBtn);
+            dibBtn.append(btn);
+
+            document.body.append(filterdiv);
+            filterdiv.append(filter);
+
+            document.body.append(sortdiv);
+            filterdiv.append(sort);
+
+            document.body.append(reducediv);
+            reducediv.append(reduce);
 
             document.body.append(myTable);
             document.body.append(myUL);
+            document.body.append(myLi);
 
+            //filter 
+            $("#filter").click(function () {
+                let filteredArray = filterArray(tableArray);
+                console.log(filteredArray);
+                let filterTable = createTable(filteredArray)
+                $("#table").replaceWith(filterTable)
+            })
+
+            $("#sort").click(function () {
+                let a = sortArray(tableArray);
+                console.log("sortArray", a);
+            })
+
+            $("#reduce").click(function () {
+                let b = reduceColumn(tableArray);
+                console.log("b", b);
+            })
 
         })
 
@@ -102,6 +156,7 @@
             table.id = "table";
             //create header
             let header = "<tr>"
+            // console.log("tableArray[0]", tableArray[0])
             for (let key in tableArray[0]) { //assign header value tableArray[0]
                 header += "<th>" + key + "</th>";
             }
@@ -124,8 +179,8 @@
             return table;
         }
 
-        function createUL(tableArray) {
-            let ul = document.createElement("ul")
+        function createUL(tableArray, type) {
+            let ul = document.createElement(type)
             ul.id = "ul";
             let li = "";
             for (let element of tableArray) {
@@ -143,10 +198,52 @@
             let option = "";
             console.log(courseSelect)
             for (let i = 0; i < courseSelect.length; i++) {
-                option += "<option>" + courseSelect[i] + "</option>"
+                option += "<option value='" + courseSelect[i].code + "'>" + courseSelect[i].name + "</option>"
             }
             select.innerHTML = option
             return select;
+        }
+
+        function filterArray(tableArray) {
+            // let filtered = [];
+            // tableArray.filter(function (element, index, array) {
+
+            //     if (array[index].Age <= 30) {
+            //         // console.log(array[index]);
+            //         filtered.push(array[index]);
+            //     }
+
+            // })
+            // console.log("filtered", filtered);
+            // return filtered;
+            tableArray = tableArray.filter(function (element, index, array) {
+                console.log(element)
+                if (element.Age <= 30) {
+                    return true;
+                }
+            })
+            return tableArray;
+        }
+
+        function sortArray(tableArray) {
+            return tableArray.sort(function (a, b) {
+                return a.Age - b.Age;
+            })
+        }
+
+        function reduceColumn(tableArray) {
+            tableArray.reduce(function (prev, element, index, array) {
+                prev = 
+                let temp = {};
+                for (let key in element) {
+                    console.log("key", key)
+                    temp[key] = element[key]
+                }
+                prev.push(temp);
+                console.log("temp", temp)
+                // return temp[2];
+
+            }, [])
         }
     </script>
 </head>

@@ -12,6 +12,7 @@ $(function () {
         console.log(this);
 
         let fn = function (element) {
+            console.log(element)
             if (initial == "block") {
                 element.style.display = "none";
                 initial = "none";
@@ -22,6 +23,7 @@ $(function () {
         }
         let intervalId = setInterval(fn, 1000, this);
         setTimeout(function () {
+            console.log("here")
             clearInterval(intervalId);
         }, 5000)
     }

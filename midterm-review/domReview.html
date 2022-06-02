@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+
+            let array = ["apple", "banana", "pear"];
+            let objectArray = [{ name: "apple", code: "ap" }, { name: "banana", code: "bn" }, { name: "pear", code: "pe" }]
+
+            // let ul = document.createElement("ul");
+            // let ol = document.createElement("ol");
+
+            // let li = "";
+            // for (let i = 0; i < array.length; i++) {
+            //     li += "<li>" + array[i] + "</li>"
+            // }
+
+            // ul.innerHTML = li;
+            // ol.innerHTML = li;
+            // document.body.append(ul);
+            // document.body.append(ol);
+
+            document.body.append(createList("ul", array))
+            document.body.append(createList("ol", array))
+
+            document.body.append(createDropdwon(objectArray));
+
+
+        })
+
+        function createList(type, arr) {
+            let elementType = document.createElement(type);
+
+            let li = "";
+            for (let i = 0; i < arr.length; i++) {
+                li += "<li>" + arr[i] + "</li>"
+            }
+            elementType.innerHTML = li;
+            return elementType;
+        }
+
+        function createDropdwon(array) {
+            let select = document.createElement("select");
+            let opt = "";
+            for (let element of array) {
+                console.log(element.name);
+                opt += "<option value='" + element.code + "'>" + element.name + "</option>";
+            }
+            select.innerHTML = opt;
+            console.log(opt);
+            return select;
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
