@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+            let courseArray = [{ name: "apple", code: "ap" }, { name: "banana", code: "bn" }, { name: "pear", code: "pe" }]
+            let country = ["Nepal", "US", "India", "China"];
+            //fname
+            let fNameDiv = document.createElement("div")
+            let fNameLabel = document.createElement("label");
+            let fNameInput = document.createElement("input");
+            fNameInput.type = "text";
+            fNameInput.setAttribute("class", "fName");
+            fNameInput.id = "fName";
+            fNameLabel.innerHTML = "First Name: "
+            fNameDiv.append(fNameLabel);
+            fNameDiv.append(fNameInput);
+
+            //lname
+            let lNameDiv = document.createElement("div")
+            let lNameLabel = document.createElement("label");
+            let lNameInput = document.createElement("input");
+            lNameInput.type = "text";
+            lNameInput.setAttribute("class", "lName");
+            lNameInput.id = "lName";
+            lNameLabel.innerHTML = "Last Name: "
+            lNameDiv.append(lNameLabel);
+            lNameDiv.append(lNameInput);
+
+            //email
+            let emailDiv = document.createElement("div")
+            let emailLabel = document.createElement("label");
+            let emailInput = document.createElement("input");
+            emailInput.type = "email";
+            emailInput.setAttribute("class", "email");
+            emailInput.id = "email";
+            emailLabel.innerHTML = "Email: "
+            emailDiv.append(emailLabel);
+            emailDiv.append(emailInput);
+
+            // Course Select dropdown
+            let courseDiv = document.createElement("div");
+            let courseLabel = document.createElement("label");
+            let courseSelect = document.createElement("select");
+            courseSelect.id = "course";
+            let courseOption = createSelect(courseArray);
+            courseLabel.append("Courses:")
+            courseSelect.innerHTML = courseOption;
+            courseDiv.append(courseLabel);
+            courseDiv.append(courseSelect);
+
+            //Gender
+            let genderDiv = document.createElement("div");
+            let genderLabel = document.createElement("label");
+            let maleLabel = document.createElement("label");
+            let femaleLabel = document.createElement("label");
+            let maleInput = document.createElement("input")
+            let femaleInput = document.createElement("input")
+            maleInput.type = "radio";
+            maleInput.className = "gender"
+            maleInput.name = "gender";
+            maleInput.value = "male"
+            maleLabel.append("Male");
+            maleLabel.append(maleInput);
+
+            //radio
+            femaleInput.type = "radio";
+            femaleInput.className = "gender"
+            femaleInput.name = "gender";
+            femaleInput.value = "female"
+            femaleLabel.append("Female");
+            femaleLabel.append(femaleInput);
+
+            genderLabel.append("Gender: ")
+            genderDiv.append(genderLabel);
+            genderDiv.append(maleLabel)
+            genderDiv.append(femaleLabel)
+
+            //checkbox
+            let countyCheckbox = createCheckBox(country);
+            let mcountryDiv = document.createElement("div");
+            let mainCheckbox = document.createElement("label");
+            mainCheckbox.innerHTML = "Country: " + countyCheckbox;
+            mcountryDiv.append(mainCheckbox);
+
+            let btnDiv = document.createElement("div");
+            let submitBtn = document.createElement("button");
+            submitBtn.id = "submit";
+            btnDiv.append(submitBtn);
+            submitBtn.append("Submit");
+
+            let filterDiv = document.createElement("div");
+            let filterBtn = document.createElement("button");
+            filterBtn.id = "filter";
+            btnDiv.append(filterBtn);
+            filterBtn.append("Filter");
+
+            let tableArray = [{ name: "Ritesh Maharjan", Age: 30, email: "ritesh@gmail.com" },
+            { name: "Rajendra Maharjan", Age: 28, email: "rajendra@gmail.com" },
+            { name: "Anand KC", Age: 35, email: "anand@gmail.com" },
+            { name: "Rakesh Maharjan", Age: 31, email: "rakesh@gmail.com" }
+            ];
+
+            let table = createTable(tableArray);
+            // console.log(tr)
+            let ulElem = document.createElement("ul");
+            ulElem.id = "ulList";
+
+            document.body.append(fNameDiv);
+            document.body.append(lNameDiv);
+            document.body.append(emailDiv);
+            document.body.append(courseDiv);
+            document.body.append(genderDiv);
+            document.body.append(mcountryDiv);
+            document.body.append(btnDiv);
+            document.body.append(table);
+            document.body.append(ulElem);
+
+            let ulList = document.getElementById("ulList")
+
+
+            $("tr").each(function () {
+                // console.log($(this).children())
+                $(this).children().each(function () {
+                    console.log($(this).html());
+                    let li = document.createElement("li");
+                    li.append($(this).html());
+                    ulList.append(li);
+                })
+            })
+
+            $("#submit").click(function () {
+                let fName = $("#fName").val();
+                let lName = $("#lName").val();
+                let email = $("#email").val();
+                let course = $("#course").val();
+                let gender = $("input[name='gender']:checked").val();
+                let country = $("input[name='country']");
+                let result = "";
+                for (let i = 0; i < country.length; i++) {
+                    if (country[i].checked) {
+                        result += "," + country[i].value;
+                    }
+                }
+                result = result.substring(1);
+                console.log(fName, lName, email, course, gender, result);
+            })
+
+            $("#filter").click(function () {
+                let filteredTable = filterTable(tableArray);
+                let filter = createTable(filteredTable);
+                table.replaceWith(filter);
+            })
+
+        })
+
+        function createSelect(courseArray) {
+            // let option = document.createElement("option");
+            let option = "";
+            for (key in courseArray) {
+                // console.log(courseArray[key]);
+                option += "<option value='" + courseArray[key].code + "'>" + courseArray[key].name + "</option>"
+            }
+            return option;
+        }
+
+        function createCheckBox(country) {
+            let checkboxInput = document.createElement("input");
+            checkboxInput.type = "checkbox";
+
+            let label = ""
+
+            for (let i = 0; i < country.length; i++) {
+                let checkboxLabel = "";
+                let checkbox = "";
+                checkboxLabel = "<label>" + country[i] + "</label>";
+                checkbox = "<input name = 'country' type ='checkbox' value='" + country[i] + "' >";
+                label += checkboxLabel + checkbox;
+            }
+            // console.log(label)
+            return label;
+        }
+
+        function createTable(tableArray) {
+            let table = document.createElement("table");
+            let th = "<tr>"
+            for (let key in tableArray[0]) {
+                th += "<th>" + key + "</th>"
+            }
+            th += "</tr>";
+
+            let tr = "<tr>";
+            for (let element of tableArray) {
+                for (let key in element) {
+                    tr += "<td>" + element[key] + "</td>"
+                }
+                tr += "</tr>"
+            }
+            table.innerHTML = th + tr;
+            return table;
+        }
+
+        function filterTable(tableArray) {
+            filteredTable = tableArray.filter(function (element, index, array) {
+                for (let key in element) {
+                    // console.log(key)
+                    if (element.Age <= 30) {
+                        return true;
+                    }
+                }
+            });
+            return filteredTable;
+        }
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

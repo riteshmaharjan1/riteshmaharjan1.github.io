@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        form
+    </title>
+    <style>
+        fieldset {
+            border-radius: 50px;
+            width: 50%;
+            background-color: aquamarine;
+        }
+
+        .mainDiv {
+            width: 50%;
+        }
+
+        .lineRow {
+            display: flex;
+            padding: 5px;
+            gap: 10px;
+        }
+
+        .label {
+            flex: 0 0 150px;
+            padding-left: 10px;
+        }
+
+        .input {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <div class="mainDiv">
+            <div class="lineRow">
+                <label for="first name" class="label">FirstName:</label>
+                <input type="text" id="fName" class="input">
+            </div>
+            <div class="lineRow">
+                <label for="first name" class="label">LastName:</label>
+                <input type="text" id="lName" class="input">
+            </div>
+            <div class="lineRow">
+                <label for="first name" class="label">Email:</label>
+                <input type="text" id="email" class="input">
+            </div>
+        </div>
+    </fieldset>
+</body>
+
+</html>

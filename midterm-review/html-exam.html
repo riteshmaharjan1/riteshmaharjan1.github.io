@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Programming Application Mid-Term</title>
+    <link rel="shortcut icon" href="/images/flower.jpg" type="image/x-icon" />
+
+    <style>
+        .formContent {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border: 2px solid black;
+            background-color: aqua;
+            border-radius: 50px;
+            padding: 30px;
+            width: 40%;
+        }
+
+        .lineRow {
+            display: flex;
+        }
+
+        .labelTitle {
+            flex: 0 0 150px;
+        }
+
+        .inputText {
+            flex: 1 1 auto;
+        }
+
+        .bottom {
+            margin-top: 30px;
+            align-self: center;
+        }
+
+        @media screen and (max-width: 700px) {
+            .formContent {
+                background-color: yellowgreen;
+                width: 350px;
+            }
+        }
+
+        .btnProp {
+            padding: 5px 150px;
+            background-color: aqua;
+        }
+
+        .headerBody {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 60px;
+        }
+
+        .delete {
+            background-color: brown;
+            padding: 5px 20px;
+        }
+
+        .bodyContent {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .personDetails {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .person {
+            display: flex;
+            gap: 20px;
+        }
+
+        .item {
+            display: flex;
+            order: 2;
+            gap: 20px;
+        }
+
+        @media screen and (min-width: 600px) {
+            .bodyContent {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                background-color: blueviolet;
+            }
+        }
+
+        img {
+            border-radius: 100% 100% 100% 100%;
+        }
+
+        .tryCSS {
+            background-color: antiquewhite;
+            width: 100%;
+            height: 60px;
+            margin-left: auto;
+            margin-right: auto;
+            position: fixed;
+            top: 0;
+
+        }
+
+        .ver {
+            vertical-align: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tryCSS">Hello<span class="ver">TEST</span> World</div>
+    <div style="margin-top: 60px;">HELLO</div>
+    <hr />
+    <hr />
+
+    <div id="form">
+
+
+    </div>
+
+
+
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <hr />
+    <hr />
+    <hr />
+    <div class="mainContent">
+        <div class="headerBody">
+            <button class="btnProp">Sort</button>
+        </div>
+
+        <div class="bodyContent">
+            <div class="item">
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bodyContent">
+            <div class="item">
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+                <div class="person">
+                    <img src="/images/flower.jpg" alt="ImagePerson" />
+                    <div class="personDetails">
+                        <p><span>Firstname: </span><span>{First Name}</span></p>
+                        <p><span>Lastname: </span><span>{Last Name}</span></p>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center; position: sticky; bottom: 0;">FOOTER</div>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        } */
+        .header {
+            display: flex;
+            justify-content: center;
+            background-color: aqua;
+        }
+
+        .content {
+            display: flex;
+            gap: 20px;
+            background-color: white;
+        }
+
+        .content>div {
+            height: 100px;
+        }
+
+        .nav1 {
+            flex: 1;
+            background-color: bisque;
+        }
+
+        .middleContent {
+            flex: 2 0;
+            background-color: cornflowerblue;
+            align-self: center;
+            height: 100%;
+        }
+
+        .nav2 {
+            flex: 1;
+            background-color: bisque;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-around;
+
+            flex-direction: column;
+            list-style: none;
+            padding: 0;
+            /* padding: 10px; */
+        }
+
+        .link {
+            list-style: none;
+            /* padding: 10px; */
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            background-color: aqua;
+        }
+
+        @media only screen and (max-width:600px) {
+            .header {
+                display: flex;
+                justify-content: center;
+                background-color: red;
+            }
+
+            .content {
+                display: flex;
+                gap: 10px;
+                background-color: white;
+                /* width: 600px; */
+                flex-wrap: wrap;
+            }
+
+            .content>div {
+                height: 100px;
+            }
+
+            .footer {
+                display: flex;
+                justify-content: center;
+                background-color: green;
+            }
+
+            .nav1 {
+                /* flex: 1 0 50%; */
+                background-color: bisque;
+                flex-wrap: wrap;
+                /* order: 1; */
+            }
+
+            .middleContent {
+                display: flex;
+                flex: 1 0 100%;
+                flex-wrap: wrap;
+                background-color: cornflowerblue;
+                /* align-self: center; */
+                align-items: center;
+                justify-content: center;
+                order: 3;
+            }
+
+            .nav2 {
+                /* flex: 1 0 50%; */
+                background-color: bisque;
+                flex-wrap: wrap;
+                /* order: 2; */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <h1>Header</h1>
+        </div>
+        <div class="content">
+            <div class="nav1">
+                <ul class="menu">
+                    <li>
+                        Home
+                    </li>
+                    <li>
+                        Menu 1
+                    </li>
+                    <li>Menu 2</li>
+                    <li>Menu 3</li>
+                </ul>
+            </div>
+            <div class="middleContent">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita vitae quod quae nihil, ducimus
+                accusamus impedit harum doloribus quos quaerat, quas officiis neque saepe? Blanditiis voluptas fugit
+                architecto corrupti inventore!
+            </div>
+            <div class="nav2">
+                <ul class="link">
+                    <li>
+                        Link 1
+                    </li>
+                    <li>
+                        Link 1
+                    </li>
+                    <li>Link 2</li>
+                    <li>Link 3</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <h1>Footer</h1>
+        </div>
+    </div>
+</body>
+
+</html>

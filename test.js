@@ -177,7 +177,7 @@ function clicked() {
     }, 1000, this);
 }
 
-let myArray1 = [10, 4, 5, 9];
+let myArray1 = [10, 4, 5, 9, 12];
 
 let result = myArray1.reduce(function (prev, element, index, array) {
     if (prev < element)
@@ -185,7 +185,7 @@ let result = myArray1.reduce(function (prev, element, index, array) {
     return prev;
 }, 0)
 
-console.log(result)
+console.log("result", result)
 
 let salaryArray = [{ name: "ritesh", salary: 100 }, { name: "raj", salary: 1000 }, { name: "ananda", salary: 2000 }]
 let salaryResult = salaryArray.reduce(function (prev, element, index, array) {
@@ -193,7 +193,7 @@ let salaryResult = salaryArray.reduce(function (prev, element, index, array) {
     return prev;
 }, 0)
 
-console.log(salaryResult);
+console.log("salaryResult", salaryResult);
 
 
 let maxSalary = salaryArray.reduce(function (prev, element, index, array) {
@@ -208,7 +208,16 @@ let newArray1 = ["abc", "asd", "ritesh"];
 for (let element of newArray1) {
     console.log(element)
 }
-
+let sumOfArray11 = [[4, 5], [6, 7, 8, 9], [6, 7, 8, 99]];
+let maxNo = sumOfArray11.reduce(function (prev, element, index, array) {
+    let sumIS = element.reduce(function (pre, ele) {
+        pre += ele;
+        return pre;
+    }, 0)
+    prev += sumIS;
+    return prev;
+}, 0);
+console.log("maxNo", maxNo);
 // let newArray2 = {a:1,b:2,c:3};
 // for(let key in newArray2){
 //     console.log(key)

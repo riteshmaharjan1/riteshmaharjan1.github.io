@@ -57,18 +57,28 @@ function isVowel(char) {
 // For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
 
 function sum(numbers) {
-    let sum = 0;
-    for (let i = 0; i < numbers.length; i++) {
-        sum += numbers[i];
-    }
+    // let sum = 0;
+    // for (let i = 0; i < numbers.length; i++) {
+    //     sum += numbers[i];
+    // }
+    // return sum;
+
+    let sum = numbers.reduce(function (prev, element) {
+        prev += element;
+        return prev;
+    }, 0);
     return sum;
 }
 
 function multiply(numbers) {
-    let multiply = 1;
-    for (let i = 0; i < numbers.length; i++) {
-        multiply = multiply * numbers[i];
-    }
+    // let multiply = 1;
+    // for (let i = 0; i < numbers.length; i++) {
+    //     multiply = multiply * numbers[i];
+    // }
+
+    let multiply = numbers.reduce(function (prev, element) {
+        return prev * element
+    }, 1)
     return multiply;
 }
 
@@ -96,12 +106,18 @@ function findLongestWord(longestWord) {
 //Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
 
 function filterLongWords(longWords, len) {
-    let words = [];
-    for (let i = 0; i < longWords.length; i++) {
-        if (longWords[i].length > len) {
-            words.push(longWords[i]);
-        }
-    }
+    // let words = [];
+    // for (let i = 0; i < longWords.length; i++) {
+    //     if (longWords[i].length > len) {
+    //         words.push(longWords[i]);
+    //     }
+    // }
+    // return words;
+    let words = longWords.filter(function (element, index, array) {
+        if (element.length > len)
+            return element;
+    })
+    console.log("words", words)
     return words;
 }
 
