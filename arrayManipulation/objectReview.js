@@ -1,11 +1,34 @@
 let obj = {
-    a: 1, b: [1, 2], c: "string", d: { x: 1, y: 2 }
+    a: 1, b: [1, 5], c: "string", d: { x: 1, y: 2 }
 }
 
 function convertObjectToArray(obj) {
     let array = [];
     for (let key in obj) {
         array.push(key + JSON.stringify(obj[key]))
+    }
+    return array;
+}
+
+function convertObjectToArrayTest(obj) {
+    let array = [];
+    for (let key in obj) {
+        console.log(obj[key] instanceof Array);
+        // if(obj[key] instanceof Array)
+        if (!obj[key] instanceof Array) {
+            if (typeof obj[key] == "object") {
+                for (let ele in obj[key]) {
+                    console.log(obj[key] instanceof Array)
+                    // if (!obj[key] instanceof Array) {
+                    //     // array.push(key + obj[key])
+                    // }
+                }
+
+            }
+        } else {
+            // array.push(key + JSON.stringify(obj[key]))
+            array.push(key + obj[key])
+        }
     }
     return array;
 }
@@ -57,6 +80,7 @@ function findYounger(ageArray) {
     return younger;
 }
 // console.log(convertObjectToArray(obj));
+console.log(convertObjectToArrayTest(obj));
 // console.log(minifyObject(miniObj));
 // console.log(findOldestPerson(ageArray));
 // console.log(findYoungestPerson(ageArray));
