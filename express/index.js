@@ -29,14 +29,12 @@ app.post("/student", function (req, res) {
     res.send("<h1> Students</h1> <div> <label> Name: </label> <span>" + req.body.name + "</span> <br><label>Email: </label><span>" + req.body.email + "</span></div>  <div> <label> Course: </label> <span> " + req.body.course + "</span></div> <div><label> Country: </label> <span>" + req.body.country + "</span> <br> <span>Sites Visited: " + viewStudentCount + "</span></div>")
 })
 
-
-
-app.use("/error", function (req, res) {
-    // res.status(500).sendFile(__dirname, "view", "error.html");
-    res.sendFile(path.join(__dirname, "view", "error.html"))
-})
-
-
 app.use((req, res, next) => {
     res.status(404).sendFile(path.join(__dirname, "view", "notFound.html"));
+}
+)
+app.use((err, req, res,next) => {
+    // res.status(500).sendFile(__dirname, "view", "error.html");
+    res.sendFile(path.join(__dirname, "view", "error.html"))
+    // res.send("Error occured");
 })
