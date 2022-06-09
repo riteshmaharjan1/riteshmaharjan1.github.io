@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <!-- <script src="form.js"></script> -->
+</head>
+
+<body>
+    <form action="student" method="post">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="Course">Course</label>
+            <select name="course" id="course" required>
+                <option value="FPP">Fundamental Programming Practise</option>
+                <option value="MPP">Modern Programming Practise</option>
+                <option value="WAP">Web Application Programming </option>
+            </select>
+        </div>
+        <div>
+            <label for="Country">Country</label>
+            <input type="checkbox" name="country" value="Nepal"> <label for="Nepal">Nepal</label>
+            <input type="checkbox" name="country" value="US"> <label for="US">US</label>
+            <input type="checkbox" name="country" value="Bangladesh"> <label for="Bangladesh">Bangladesh</label>
+        </div>
+        <div>
+            <label for="Gender">Gender</label>
+            <input type="radio" name="gender" value="male" required> <label for="male">Male</label>
+            <input type="radio" name="gender" value="female" required> <label for="female">Female</label>
+        </div>
+
+        <input type="submit">
+    </form>
+</body>
+
+</html>
